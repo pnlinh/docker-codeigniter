@@ -19,6 +19,7 @@ Lightweight docker image for CodeIgniter development
 - [x] PHP 8.1 (recommend usage)
 - [x] PHP 8.2 (recommend usage)
 - [x] PHP 8.3
+- [x] PHP 8.4
 
 ### How to use
 
@@ -31,6 +32,7 @@ VERSION=8.0 make build # Build image with php 8.0
 VERSION=8.1 make build # Build image with php 8.1
 VERSION=8.2 make build # Build image with php 8.2
 VERSION=8.3 make build # Build image with php 8.3
+VERSION=8.4 make build # Build image with php 8.4
 ```
 
 - How to customize image name
@@ -42,6 +44,7 @@ VERSION=7.2 IMAGE=yourname/codeigniter:php make build # Build image with php 7.2
 - Test image by PHP version
 
 ```shell
+VERSION=8.4 make test
 VERSION=8.3 make test
 VERSION=8.2 make test
 VERSION=8.1 make test
@@ -50,7 +53,7 @@ VERSION=7.4 make test
 VERSION=7.2 make test
 ```
 
-- Test all image
+- Test all images
 
 ```shell
 make test-all
