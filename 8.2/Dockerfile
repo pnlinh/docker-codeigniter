@@ -1,4 +1,4 @@
-ARG ALPINE_VERSION=3.18.5
+ARG ALPINE_VERSION=3.20.7
 FROM alpine:${ALPINE_VERSION}
 LABEL Maintainer="Ngoc Linh Pham <pnlinh1207@gmail.com>"
 LABEL Description="Lightweight container with Nginx 1.24 & PHP 8.2 based on Alpine Linux."
@@ -33,7 +33,6 @@ RUN apk add --no-cache \
   php82-simplexml \
   php82-session \
   php82-opcache \
-  php82-gd \
   php82-intl \
   php82-pcntl \
   php82-posix \

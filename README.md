@@ -1,6 +1,6 @@
 # Docker PHP-FPM & Nginx base on Alpine Linux
 
-Simple docker image for CodeIgniter development
+Lightweight docker image for CodeIgniter development
 
 ### Why should use this image
 
@@ -9,7 +9,7 @@ Simple docker image for CodeIgniter development
 - Multi-platform, supporting AMD4, ARMv6, ARMv7, ARM64
 - Use [runit](http://smarden.org/runit/) instead
   of [supervisor](http://supervisord.org/)
-- Very small Docker image size
+- Tiny Docker image size
 
 ### PHP version support
 
@@ -19,6 +19,7 @@ Simple docker image for CodeIgniter development
 - [x] PHP 8.1 (recommend usage)
 - [x] PHP 8.2 (recommend usage)
 - [x] PHP 8.3
+- [x] PHP 8.4
 
 ### How to use
 
@@ -31,22 +32,19 @@ VERSION=8.0 make build # Build image with php 8.0
 VERSION=8.1 make build # Build image with php 8.1
 VERSION=8.2 make build # Build image with php 8.2
 VERSION=8.3 make build # Build image with php 8.3
+VERSION=8.4 make build # Build image with php 8.4
 ```
 
 - How to customize image name
 
 ```shell
 VERSION=7.2 IMAGE=yourname/codeigniter:php make build # Build image with php 7.2
-VERSION=7.4 IMAGE=yourname/codeigniter:php make build # Build image with php 7.4
-VERSION=8.0 IMAGE=yourname/codeigniter:php make build # Build image with php 8.0
-VERSION=8.1 IMAGE=yourname/codeigniter:php make build # Build image with php 8.1
-VERSION=8.2 IMAGE=yourname/codeigniter:php make build # Build image with php 8.2
-VERSION=8.3 IMAGE=yourname/codeigniter:php make build # Build image with php 8.3
 ```
 
 - Test image by PHP version
 
 ```shell
+VERSION=8.4 make test
 VERSION=8.3 make test
 VERSION=8.2 make test
 VERSION=8.1 make test
@@ -55,7 +53,7 @@ VERSION=7.4 make test
 VERSION=7.2 make test
 ```
 
-- Test all image
+- Test all images
 
 ```shell
 make test-all
@@ -69,23 +67,21 @@ docker run --name=app -v /path/to/project:/var/www/html -p 80:80 pnlinh/codeigni
 
 - Using docker-compose
 
-```
-version: '3.4'
-
+```yaml
 services:
-    app:
-        image: pnlinh/codeigniter:php8.1
-        hostname: codeigniter-app
-        container_name: codeigniter-app
-        ports:
-            - "80:80"
-        volumes:
-            - .:/var/www/html
-        networks:
-            - localnet
+  app:
+    image: pnlinh/codeigniter:php8.1
+    hostname: codeigniter-app
+    container_name: codeigniter-app
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www/html
+    networks:
+      - localnet
 networks:
-    localnet:
-        driver: "bridge"
+  localnet:
+    driver: "bridge"
 ```
 
 - Browser to: [http://localhost](http://localhost)
@@ -151,6 +147,7 @@ Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
 ```
 
 - PHP 7.4
+
 ```text
 trivy image pnlinh/codeigniter:php7.4
 2023-10-10T15:10:18.620+0700	INFO	Vulnerability scanning is enabled
@@ -167,6 +164,7 @@ Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
 ```
 
 - PHP 7.2
+
 ```text
 trivy image pnlinh/codeigniter:php7.2
 2023-10-10T15:11:17.417+0700	INFO	Vulnerability scanning is enabled
@@ -193,13 +191,8 @@ Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
 
 - See [docs/enable-https.md](docs/enable-https.md)
 
-### Useful images
-
-- Magento: https://github.com/pnlinh/docker-php/tree/feature/magento
-- Symfony: https://github.com/pnlinh/docker-php/tree/feature/symfony
-
 ### References
 
-- https://github.com/TrafeX/docker-php-nginx
-- https://bolshov.online/docker/2020/11/18/runit-vs-supervisor
-- https://stackoverflow.com/questions/67231714/how-to-add-trusted-root-ca-to-docker-alpine/67232164#67232164
+- [TrafeX/docker-php-nginx](https://github.com/TrafeX/docker-php-nginx)
+- [Runit vs Supervisor](https://bolshov.online/docker/2020/11/18/runit-vs-supervisor)
+- [Add trusted root CA to Alpine](https://stackoverflow.com/questions/67231714/how-to-add-trusted-root-ca-to-docker-alpine/67232164#67232164)
