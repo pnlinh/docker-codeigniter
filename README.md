@@ -11,7 +11,7 @@ Lightweight docker image for CodeIgniter development
   of [supervisor](http://supervisord.org/)
 - Tiny Docker image size
 
-### PHP version support
+### PHP version supported
 
 - [x] PHP 7.2
 - [x] PHP 7.4
@@ -90,97 +90,111 @@ networks:
 
 ### Security scanner
 
-- PHP 8.3
+- PHP 8.4
 
-```
-trivy image pnlinh/codeigniter:php8.3
-2023-12-10T10:49:03.211+0700	INFO	Vulnerability scanning is enabled
-2023-12-10T10:49:03.211+0700	INFO	Secret scanning is enabled
-2023-12-10T10:49:03.211+0700	INFO	If your scanning is slow, please try '--scanners vuln' to disable secret scanning
-2023-12-10T10:49:03.211+0700	INFO	Please see also https://aquasecurity.github.io/trivy/v0.48/docs/scanner/secret/#recommendation for faster secret detection
-2023-12-10T10:49:03.221+0700	INFO	Detected OS: alpine
-2023-12-10T10:49:03.221+0700	INFO	Detecting Alpine vulnerabilities...
-2023-12-10T10:49:03.223+0700	INFO	Number of language-specific files: 0
+```terminaloutput
+trivy image pnlinh/codeigniter:php8.4
+2025-08-14T07:01:40+07:00	INFO	[vuln] Vulnerability scanning is enabled
+2025-08-14T07:01:40+07:00	INFO	[secret] Secret scanning is enabled
+2025-08-14T07:01:40+07:00	INFO	[secret] If your scanning is slow, please try '--scanners vuln' to disable secret scanning
+2025-08-14T07:01:40+07:00	INFO	[secret] Please see also https://aquasecurity.github.io/trivy/v0.58/docs/scanner/secret#recommendation for faster secret detection
+2025-08-14T07:01:42+07:00	INFO	Detected OS	family="alpine" version="3.21.4"
+2025-08-14T07:01:42+07:00	WARN	This OS version is not on the EOL list	family="alpine" version="3.21"
+2025-08-14T07:01:42+07:00	INFO	[alpine] Detecting vulnerabilities...	os_version="3.21" repository="3.21" pkg_num=95
+2025-08-14T07:01:42+07:00	INFO	Number of language-specific files	num=0
 
-pnlinh/codeigniter:php8.3 (alpine 3.19.0)
+pnlinh/codeigniter:php8.4 (alpine 3.21.4)
 
 Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
+```
 
+- PHP 8.3
+
+```terminaloutput
+trivy image pnlinh/codeigniter:php8.3
+2025-08-14T07:00:53+07:00	INFO	[vuln] Vulnerability scanning is enabled
+2025-08-14T07:00:53+07:00	INFO	[secret] Secret scanning is enabled
+2025-08-14T07:00:53+07:00	INFO	[secret] If your scanning is slow, please try '--scanners vuln' to disable secret scanning
+2025-08-14T07:00:53+07:00	INFO	[secret] Please see also https://aquasecurity.github.io/trivy/v0.58/docs/scanner/secret#recommendation for faster secret detection
+2025-08-14T07:00:56+07:00	INFO	Detected OS	family="alpine" version="3.20.7"
+2025-08-14T07:00:56+07:00	INFO	[alpine] Detecting vulnerabilities...	os_version="3.20" repository="3.20" pkg_num=95
+2025-08-14T07:00:56+07:00	INFO	Number of language-specific files	num=0
+
+pnlinh/codeigniter:php8.3 (alpine 3.20.7)
+
+Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
 ```
 
 - PHP 8.2
 
-```
+```terminaloutput
 trivy image pnlinh/codeigniter:php8.2
-2023-10-10T15:02:53.141+0700	INFO	Need to update DB
-2023-10-10T15:02:53.142+0700	INFO	DB Repository: ghcr.io/aquasecurity/trivy-db
-2023-10-10T15:02:53.142+0700	INFO	Downloading DB...
-40.28 MiB / 40.28 MiB [--------------------------------------------------------------------------------------------------] 100.00% 1.62 MiB p/s 25s
-2023-10-10T15:03:22.397+0700	INFO	Vulnerability scanning is enabled
-2023-10-10T15:03:22.397+0700	INFO	Secret scanning is enabled
-2023-10-10T15:03:22.397+0700	INFO	If your scanning is slow, please try '--scanners vuln' to disable secret scanning
-2023-10-10T15:03:22.397+0700	INFO	Please see also https://aquasecurity.github.io/trivy/v0.45/docs/scanner/secret/#recommendation for faster secret detection
-2023-10-10T15:03:24.592+0700	INFO	Detected OS: alpine
-2023-10-10T15:03:24.592+0700	INFO	Detecting Alpine vulnerabilities...
-2023-10-10T15:03:24.596+0700	INFO	Number of language-specific files: 0
+2025-08-14T07:02:14+07:00	INFO	[vuln] Vulnerability scanning is enabled
+2025-08-14T07:02:14+07:00	INFO	[secret] Secret scanning is enabled
+2025-08-14T07:02:14+07:00	INFO	[secret] If your scanning is slow, please try '--scanners vuln' to disable secret scanning
+2025-08-14T07:02:14+07:00	INFO	[secret] Please see also https://aquasecurity.github.io/trivy/v0.58/docs/scanner/secret#recommendation for faster secret detection
+2025-08-14T07:02:17+07:00	INFO	Detected OS	family="alpine" version="3.20.7"
+2025-08-14T07:02:17+07:00	INFO	[alpine] Detecting vulnerabilities...	os_version="3.20" repository="3.20" pkg_num=95
+2025-08-14T07:02:17+07:00	INFO	Number of language-specific files	num=0
 
-pnlinh/codeigniter:php8.2 (alpine 3.18.4)
+pnlinh/codeigniter:php8.2 (alpine 3.20.7)
 
 Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
 ```
 
 - PHP 8.1
 
-```text
+```terminaloutput
 trivy image pnlinh/codeigniter:php8.1
-2023-10-10T15:05:27.635+0700	INFO	Vulnerability scanning is enabled
-2023-10-10T15:05:27.635+0700	INFO	Secret scanning is enabled
-2023-10-10T15:05:27.635+0700	INFO	If your scanning is slow, please try '--scanners vuln' to disable secret scanning
-2023-10-10T15:05:27.635+0700	INFO	Please see also https://aquasecurity.github.io/trivy/v0.45/docs/scanner/secret/#recommendation for faster secret detection
-2023-10-10T15:06:09.378+0700	INFO	Detected OS: alpine
-2023-10-10T15:06:09.378+0700	INFO	Detecting Alpine vulnerabilities...
-2023-10-10T15:06:09.391+0700	INFO	Number of language-specific files: 0
+2025-08-14T07:02:37+07:00	INFO	[vuln] Vulnerability scanning is enabled
+2025-08-14T07:02:37+07:00	INFO	[secret] Secret scanning is enabled
+2025-08-14T07:02:37+07:00	INFO	[secret] If your scanning is slow, please try '--scanners vuln' to disable secret scanning
+2025-08-14T07:02:37+07:00	INFO	[secret] Please see also https://aquasecurity.github.io/trivy/v0.58/docs/scanner/secret#recommendation for faster secret detection
+2025-08-14T07:02:39+07:00	INFO	Detected OS	family="alpine" version="3.19.8"
+2025-08-14T07:02:39+07:00	INFO	[alpine] Detecting vulnerabilities...	os_version="3.19" repository="3.19" pkg_num=96
+2025-08-14T07:02:39+07:00	INFO	Number of language-specific files	num=0
 
-pnlinh/codeigniter:php8.1 (alpine 3.18.4)
+pnlinh/codeigniter:php8.1 (alpine 3.19.8)
 
 Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
 ```
 
 - PHP 7.4
 
-```text
+```terminaloutput
 trivy image pnlinh/codeigniter:php7.4
-2023-10-10T15:10:18.620+0700	INFO	Vulnerability scanning is enabled
-2023-10-10T15:10:18.620+0700	INFO	Secret scanning is enabled
-2023-10-10T15:10:18.620+0700	INFO	If your scanning is slow, please try '--scanners vuln' to disable secret scanning
-2023-10-10T15:10:18.620+0700	INFO	Please see also https://aquasecurity.github.io/trivy/v0.45/docs/scanner/secret/#recommendation for faster secret detection
-2023-10-10T15:10:40.824+0700	INFO	Detected OS: alpine
-2023-10-10T15:10:40.824+0700	INFO	Detecting Alpine vulnerabilities...
-2023-10-10T15:10:40.842+0700	INFO	Number of language-specific files: 0
+2025-08-14T07:03:04+07:00	INFO	[vuln] Vulnerability scanning is enabled
+2025-08-14T07:03:04+07:00	INFO	[secret] Secret scanning is enabled
+2025-08-14T07:03:04+07:00	INFO	[secret] If your scanning is slow, please try '--scanners vuln' to disable secret scanning
+2025-08-14T07:03:04+07:00	INFO	[secret] Please see also https://aquasecurity.github.io/trivy/v0.58/docs/scanner/secret#recommendation for faster secret detection
+2025-08-14T07:03:07+07:00	INFO	Detected OS	family="alpine" version="3.15.11"
+2025-08-14T07:03:07+07:00	INFO	[alpine] Detecting vulnerabilities...	os_version="3.15" repository="3.15" pkg_num=86
+2025-08-14T07:03:07+07:00	INFO	Number of language-specific files	num=0
+2025-08-14T07:03:07+07:00	WARN	This OS version is no longer supported by the distribution	family="alpine" version="3.15.11"
+2025-08-14T07:03:07+07:00	WARN	The vulnerability detection may be insufficient because security updates are not provided
 
-pnlinh/codeigniter:php7.4 (alpine 3.15.10)
+pnlinh/codeigniter:php7.4 (alpine 3.15.11)
 
 Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
 ```
 
 - PHP 7.2
 
-```text
+```terminaloutput
 trivy image pnlinh/codeigniter:php7.2
-2023-10-10T15:11:17.417+0700	INFO	Vulnerability scanning is enabled
-2023-10-10T15:11:17.417+0700	INFO	Secret scanning is enabled
-2023-10-10T15:11:17.417+0700	INFO	If your scanning is slow, please try '--scanners vuln' to disable secret scanning
-2023-10-10T15:11:17.417+0700	INFO	Please see also https://aquasecurity.github.io/trivy/v0.45/docs/scanner/secret/#recommendation for faster secret detection
-2023-10-10T15:11:33.151+0700	INFO	Detected OS: alpine
-2023-10-10T15:11:33.151+0700	INFO	Detecting Alpine vulnerabilities...
-2023-10-10T15:11:33.161+0700	INFO	Number of language-specific files: 0
-2023-10-10T15:11:33.161+0700	WARN	This OS version is no longer supported by the distribution: alpine 3.8.5
-2023-10-10T15:11:33.161+0700	WARN	The vulnerability detection may be insufficient because security updates are not provided
+2025-08-14T07:03:27+07:00	INFO	[vuln] Vulnerability scanning is enabled
+2025-08-14T07:03:27+07:00	INFO	[secret] Secret scanning is enabled
+2025-08-14T07:03:27+07:00	INFO	[secret] If your scanning is slow, please try '--scanners vuln' to disable secret scanning
+2025-08-14T07:03:27+07:00	INFO	[secret] Please see also https://aquasecurity.github.io/trivy/v0.58/docs/scanner/secret#recommendation for faster secret detection
+2025-08-14T07:03:29+07:00	INFO	Detected OS	family="alpine" version="3.8.5"
+2025-08-14T07:03:29+07:00	INFO	[alpine] Detecting vulnerabilities...	os_version="3.8" repository="3.8" pkg_num=79
+2025-08-14T07:03:29+07:00	INFO	Number of language-specific files	num=0
+2025-08-14T07:03:29+07:00	WARN	This OS version is no longer supported by the distribution	family="alpine" version="3.8.5"
+2025-08-14T07:03:29+07:00	WARN	The vulnerability detection may be insufficient because security updates are not provided
 
 pnlinh/codeigniter:php7.2 (alpine 3.8.5)
 
 Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
-
 ```
 
 ### Add Xdebug
